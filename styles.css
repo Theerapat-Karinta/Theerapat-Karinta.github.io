@@ -1,0 +1,22 @@
+
+header {
+    display: flex;
+    border: 1px solid red;
+}
+
+.logo {
+    border: 1px solid red;
+}
+
+nav {
+    display: flex;
+    border: 1px solid red;
+}
+
+ul {
+    border: 1px solid red;
+}
+
+li {
+    border: 1px solid red;
+}
