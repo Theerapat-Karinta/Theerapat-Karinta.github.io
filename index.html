@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
 
     <meta charset="UTF-8">
@@ -7,25 +7,70 @@
 
     <!--SEO-->
     <title>Theerapat Karinta Portfolio</title><!--ปกติแล้ว title จะเป็นตัวที่แสดงตอนค้นหาในกูเกิล-->
-    <meta name="desscription" content="ผลงานและโปรเจ็กที่ Theerapat Karinta เคยทำในงานแอนิมาชั่นและงาน 3D model"><!--meta จะป็นส่วนทีี่อะธิบายเนื้อหาว่าเว็ปของเราเกี่ยวกับอะไรตอนอยู่หน้าค้นหา-->
+    <meta name="desscription" content="ผลงานและโปรเจ็กที่ Theerapat Karinta เคยทำในงานแอนิมาชั่นและงาน 3D model"><!--meta จะเป็นส่วนที่อะธิบายเนื้อหาว่าเว็ปของเราเกี่ยวกับอะไรตอนอยู่หน้าค้นหา-->
 
     <!--CSS-->
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="content styles.css">
 
+    <!--Animation-->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Athiti:wght@200;300;400;500;600;700&family=Noto+Sans+Thai:wght@100..900&family=Noto+Serif+Thai:wght@100..900&display=swap" rel="stylesheet">
+
+    <!--Icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--Script อันนี้คือโบ้ มากนะ มันต้องเอาไปไว้ข้างล่างไม่รู้ทำไม งง เหมือนกัน-->
+    <!--<script type="module" src="main.js"></script>-->
 </head>
-
 <body><!--body เนื้อหาในเว็ปไซน์-->
-    <header> <!---->
+    <header class="site-header" id="home">
         <div class="container">
-            <div class="logo">LOGO000</div>
-            <nav>
-                <ul>
-                    <li href="#">HOME</li>
-                    <li href="#">ABOUT</li>
-                    <li href="#">PROJECTS</li>
+            <div data-aos="fade-down" data-aos-duration="1000" class="logo">
+                <img src="images/6bs_logo.png" alt="6Bean Studio Logo" width="50px" height="50px">
+                <div class="logo_text">6Bean Studio</div>
+            </div>
+            <nav class="main-nav">
+                <button class="hamburger-menu" aria-label="เปิดเมนูนำทาง" aria-expanded="false" 
+                data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li data-aos="fade-down" data-aos-duration="1000"><a href="#home" >HOME</a></li>
+                    <li data-aos="fade-down" data-aos-duration="1500"><a href="#portfolio">ผลงาน</a></li>
+                    <li data-aos="fade-down" data-aos-duration="2000"><a href="#about">ABOUT ME</a></li>
+                    <li data-aos="fade-down" data-aos-duration="2500"><a href="#contact">ติดต่อ</a></li>
                 </ul>
             </nav>
         </div>
-    </section>
+        </header>
+    <main>
+        <div></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="social-links">
+                <a data-aos="fade-up" data-aos-duration="1250" href="https://www.youtube.com/@6beanStudios" target="_blank" title="Go to 6Bean Studio Youtube"><i class="fa-brands fa-youtube"></i> 6Bean Studio</a>
+                <a data-aos="fade-up" data-aos-duration="1300" href="https://www.instagram.com/6bean.studio/" target="_blank" title="Go to 6Bean Studio instagram"><i class="fa-brands fa-instagram"></i> 6bean.studio</a>
+                <a data-aos="fade-up" data-aos-duration="1350" href="mailto:6bean.studio@gmail.com" title="Go to 6Bean Studio email"><i class="fa-solid fa-inbox"></i> 6bean.studio@gmail.com</a>
+            </div>
+        </div>
+        <div class="container" >
+            <p data-aos="fade-up" data-aos-duration="1100">&copy; Copyright <span id="current-year"> </span>- Theerapat Karinta. สงวนลิขสิทธิ์.</p>
+        </div>
+        </footer>
+
+    <!--Script-->
+    <script src="main.js"></script>
+    <script src="hamburger menu.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script> AOS.init(); </script>
 </body>
 </html>
