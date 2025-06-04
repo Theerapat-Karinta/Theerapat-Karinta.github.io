@@ -7,7 +7,7 @@
     --text-color-light: #ffffff;
     --text-color-medium: #4c4c4c;
     --text-color-footer: #616161;
-    --background-color-body: #f4f4f4; /* Was #000000, changed to light grey */
+    --background-color-body: #000000; /* Was #000000, changed to light grey */
     --background-color-header-footer: #000000;
     --accent-color: #ff9c6b;
     box-sizing: border-box;/* มันทำให้กล่องของเราอยู่ในกรอบ */
