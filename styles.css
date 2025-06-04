@@ -2,16 +2,24 @@
 *,
 *::before,
 *::after {
+    --primary-font: "Athiti", 'Noto Sans Thai', sans-serif;
+    --text-color-dark: #000000;
+    --text-color-light: #ffffff;
+    --text-color-medium: #4c4c4c;
+    --text-color-footer: #616161;
+    --background-color-body: #f4f4f4; /* Was #000000, changed to light grey */
+    --background-color-header-footer: #000000;
+    --accent-color: #ff9c6b;
     box-sizing: border-box;/* มันทำให้กล่องของเราอยู่ในกรอบ */
     margin: 0;
     padding: 0;
 }
 
 body {
-    font-family: "Athiti", 'Noto Sans Thai', sans-serif;
+    font-family: var(--primary-font);
+    color: var(--text-color-dark);
+    background-color: var(--background-color-body);
     line-height: 1.6;
-    color: #000000; /* Darker grey for better contrast and modern feel */
-    background-color: #000000; /* Very light grey, almost white */
     overflow-x: hidden; /* Prevent horizontal scroll when nav opens */
 }
 
@@ -22,26 +30,26 @@ body {
 }
 
 h1, h2, h3 {
-    font-family: 'Athiti', 'Noto Sans Thai', sans-serif;
+    font-family: var(--primary-font); /* Inherits from body, can be removed if same */
     line-height: 1.2;
     margin-bottom: 0.75em;
 }
 
 h1 {
-    font-family: "Athiti", 'Noto Sans Thai', sans-serif;
+    /* font-family already inherited */
     font-size: 2.8rem;
     font-weight: 700;
 }
 
 h2 {
-    font-family: "Athiti", 'Noto Sans Thai', sans-serif;
+    /* font-family already inherited */
     font-size: 2.2rem;
     font-weight: 600; /* Slightly less bold for a more modern feel */
     text-align: center;
     margin-bottom: 1.5em;
 }
 h3 {
-    font-family: "Athiti", 'Noto Sans Thai', sans-serif;
+    /* font-family already inherited */
     font-size: 1.5rem;
     font-weight: 400; /* Changed from 700 to 400 for less emphasis */
 }
@@ -52,11 +60,11 @@ p {
 
 a {
     text-decoration: none;
-    color: #4c4c4c; /* Dark grey for links, more subtle */
+    color: var(--text-color-medium);
 }
 
 a:hover {
-    color: #ff9c6b; /* Black on hover for clear interaction */
+    color: var(--accent-color);
 }
 
 img {
@@ -67,7 +75,7 @@ img {
 
 /* Header & Navigation */
 .site-header {
-    background-color: #000000;
+    background-color: var(--background-color-header-footer);
     padding: min(0.5rem ,8%);
     box-shadow: 0 3px 3px rgba(0,0,0,0.04); /* Softer, more subtle shadow */
     position: fixed;
@@ -89,7 +97,7 @@ img {
     align-items: center;
     font-size: 1.5rem;
     font-weight: 550;
-    color: #ff9c6b; /* Match body text color */
+    color: var(--accent-color); /* Match body text color */
 }
 
 .logo_text {
@@ -113,7 +121,7 @@ img {
 }
 
 .nav-links a {
-    color: #ffffff; /* Medium-dark grey for nav links */
+    color: var(--text-color-light); /* Medium-dark grey for nav links */
     font-weight: 400;
     padding: 0.5rem;
     transition: color 0.3s ease, border-bottom-color 0.3s ease; /* Added border-bottom-color transition */
@@ -121,67 +129,8 @@ img {
 }
 .nav-links a:hover,
 .nav-links a.active { /* Assuming JS will add 'active' class for current page/section */
-    color: #ff9c6b; /*  Black for active/hover state */
-    border-bottom-color: #ff9c6b; /* Black underline for active/hover */
-}
-
-/* Navigation Dropdown */
-.nav-links li.dropdown {
-    position: relative; /* Important for positioning the dropdown menu */
-}
-
-.nav-links li.dropdown > a { /* Target the direct anchor to style with flex for caret alignment */
-    display: inline-flex; /* Align text and icon, use inline-flex to keep natural flow */
-    align-items: center;
-}
-
-.nav-links li.dropdown > a .fa-caret-down {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.nav-links li.dropdown .dropdown-menu {
-    display: none; /* Hidden by default */
-    position: absolute;
-    top: 100%; /* Position it right below the parent li */
-    left: 0;
-    background-color: #000000; /* Match header background */
-    box-shadow: 0 3px 5px rgba(0,0,0,0.2); /* Slightly more pronounced shadow for dropdown */
-    list-style: none;
-    padding: 10px 0; /* Padding for the dropdown box */
-    margin: 0; /* Reset margin */
-    min-width: 200px; /* Minimum width for the dropdown */
-    z-index: 1001; /* Ensure it's above other content, including header's z-index */
-    border-radius: 0 0 4px 4px; /* Optional: rounded corners for bottom */
-}
-
-.nav-links li.dropdown:hover .dropdown-menu,
-.nav-links li.dropdown:focus-within .dropdown-menu { /* Show on hover and when an item inside has focus */
-    display: block;
-}
-
-.nav-links li.dropdown:hover > a .fa-caret-down,
-.nav-links li.dropdown:focus-within > a .fa-caret-down {
-    transform: rotate(180deg); /* Rotate caret when dropdown is open */
-}
-
-.nav-links li.dropdown .dropdown-menu li {
-    margin-left: 0; /* Reset margin from parent nav-links li */
-    width: 100%;
-}
-
-.nav-links li.dropdown .dropdown-menu li a {
-    padding: 10px 20px; /* Padding for dropdown items */
-    display: block; /* Make the entire area clickable */
-    color: #ffffff; /* Link color for dropdown items */
-    white-space: nowrap; /* Prevent text wrapping */
-    border-bottom: none; /* Remove bottom border from main nav style */
-}
-
-.nav-links li.dropdown .dropdown-menu li a:hover {
-    background-color: #1a1a1a; /* Hover background for dropdown items */
-    color: #ff9c6b; /* Hover text color for dropdown items */
-    border-bottom: none; /* Ensure no border on hover */
+    color: var(--accent-color); /*  Black for active/hover state */
+    border-bottom-color: var(--accent-color); /* Black underline for active/hover */
 }
 
 .hamburger-menu {
@@ -191,7 +140,7 @@ img {
     cursor: pointer;
     padding: 10px;
     z-index: 1001; 
-    color: #000000;
+    /* color: var(--text-color-dark); */ /* Likely no visible effect, spans are styled */
     transition: color 0.3s ease;
 }
 
@@ -199,7 +148,7 @@ img {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #ffffff; /* Match dark text color */
+    background-color: var(--text-color-light); /* Match dark text color */
     border-radius: 25px;
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
@@ -211,17 +160,17 @@ footer .social-links {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;/* เพิ่ม: ให้ไอคอนขึ้นบรรทัดใหม่ได้เมื่อพื้นที่ไม่พอ */
-    gap: 10px; /* เพิ่ม: กำหนดระยะห่างระหว่างไอคอน (ทั้งแนวนอนและแนวตั้งเมื่อขึ้นบรรทัดใหม่) */
+    gap: 15px; /* เพิ่ม: กำหนดระยะห่างระหว่างไอคอน (ทั้งแนวนอนและแนวตั้งเมื่อขึ้นบรรทัดใหม่) */
     margin-top: 20px;
 }
 
 footer .social-links a {
-    color: #ffffff;
+    color: var(--text-color-light);
     transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
-    color: #ff9c6b;
+    color: var(--accent-color);
 }
 
 /*footer {
@@ -231,11 +180,14 @@ footer .social-links a:hover {
 }*/
 
 .site-footer {
-    background-color: #000000; /* Dark, almost black footer */
-    color: #616161; /* Light grey text for footer */
+    background-color: var(--background-color-header-footer); /* Dark, almost black footer */
+    color: var(--text-color-footer); /* Light grey text for footer */
     text-align: center;
     padding: 25px ;
     margin-top: 100px;
+    display: flex; /* Moved from inline style */
+    flex-direction: column; /* Moved from inline style */
+    gap: 10px; /* Moved from inline style */
 }
 
 
@@ -243,6 +195,8 @@ footer .social-links a:hover {
 @media (max-width: 768px) {
     .main-nav { /* Target .main-nav for positioning context */
         position: static; /* Or adjust as needed */
+        /* align-items: center; */ /* Hamburger is aligned by .site-header .container */
+        justify-content: center;
     }
     .nav-links {
         display: none; 
@@ -254,8 +208,6 @@ footer .social-links a:hover {
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.99); /* Almost opaque white for mobile nav */
         backdrop-filter: blur(5px);
-        /*padding-top: 70px; /* Match main content padding-top */
-        /*text-align: center;*/
         padding-top: 80px; /* Increased padding to avoid overlapping fixed header */
         padding-left: 25px; /* Add padding for content alignment */
         padding-right: 25px; /* Add padding for content alignment */
@@ -272,6 +224,7 @@ footer .social-links a:hover {
 
     .nav-links li {
         margin: 20px 0;
+        display: block;
     }
 
     .nav-links a {
@@ -312,28 +265,5 @@ footer .social-links a:hover {
         margin-top: 15px; /* ลดระยะห่างด้านบนลงเล็กน้อย */
         gap: 10px; /* อาจจะลด gap ลงเล็กน้อยถ้าต้องการ */
     }
-
-    /* Responsive Dropdown Adjustments */
-    .nav-links li.dropdown .dropdown-menu {
-        position: static; /* Remove absolute positioning in mobile nav */
-        box-shadow: none;
-        padding-left: 20px; /* Indent dropdown items slightly */
-        background-color: transparent; /* Blend with mobile nav background */
-        min-width: 100%;
-        border-radius: 0;
-    }
-
-    .nav-links li.dropdown .dropdown-menu li a {
-        padding: 10px 20px; /* Adjust padding for mobile dropdown items */
-        font-size: 1.3rem; /* Slightly smaller font for sub-items */
-        color: #dddddd; /* Lighter color for sub-items to differentiate */
-    }
-
-    .nav-links li.dropdown .dropdown-menu li a:hover {
-        color: #ff9c6b;
-        background-color: transparent; /* Or a very subtle background */
-    }
-    /* For mobile, click to toggle dropdown usually requires JavaScript.
-       This CSS will make it appear on hover/tap, but JS would provide better UX. */
 
 }
