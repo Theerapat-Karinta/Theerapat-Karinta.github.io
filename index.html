@@ -30,9 +30,10 @@
 <body><!--body เนื้อหาในเว็ปไซน์-->
     <header class="site-header" id="home">
         <div class="container">
-            <div data-aos="fade-down" data-aos-duration="1000" class="logo">
-                <img src="images/6bs_logo.png" alt="6Bean Studio Logo" width="50px" height="50px">
-                <div class="logo_text">6Bean Studio</div>
+            <div class="logo">
+                <img src="images/6bs_logo.png" alt="6Bean Studio Logo" width="50px" height="50px" 
+                data-aos="fade-down" data-aos-duration="1000">
+                <div data-aos="fade-down" data-aos-duration="1250" class="logo_text">6Bean Studio</div>
             </div>
             <nav class="main-nav">
                 <button class="hamburger-menu" aria-label="เปิดเมนูนำทาง" aria-expanded="false" 
@@ -42,10 +43,20 @@
                     <span></span>
                 </button>
                 <ul class="nav-links">
-                    <li data-aos="fade-down" data-aos-duration="1000"><a href="#home" >HOME</a></li>
-                    <li data-aos="fade-down" data-aos-duration="1500"><a href="#portfolio">ผลงาน</a></li>
-                    <li data-aos="fade-down" data-aos-duration="2000"><a href="#about">ABOUT ME</a></li>
-                    <li data-aos="fade-down" data-aos-duration="2500"><a href="#contact">ติดต่อ</a></li>
+                    <li data-aos="fade-down" data-aos-duration="1000">
+                        <a href="#home" >HOME</a></li>
+                    <li data-aos="fade-down" data-aos-duration="1500" class="dropdown">
+                        <div style="gap: 10px; display: flex; flex-direction: column;">
+                        <a href="#portfolio" aria-haspopup="true">PORTFOLIO<i class="fas fa-caret-down" aria-hidden="true"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#portfolio-animation">Animation</a></li>
+                            <li><a href="#portfolio-3dmodel">3D Models</a></li>
+                            <li><a href="#portfolio-graphic">Graphic Design</a></li>
+                        </ul>
+                        </div>
+                    </li>
+                    <li data-aos="fade-down" data-aos-duration="2000">
+                        <a href="#about">ABOUT ME</a></li>
                 </ul>
             </nav>
         </div>
@@ -54,18 +65,21 @@
         <div></div>
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" style="gap: 10px; display: flex; flex-direction: column;">
         <div class="container">
             <div class="social-links">
-                <a data-aos="fade-up" data-aos-duration="1250" href="https://www.youtube.com/@6beanStudios" target="_blank" title="Go to 6Bean Studio Youtube"><i class="fa-brands fa-youtube"></i> 6Bean Studio</a>
-                <a data-aos="fade-up" data-aos-duration="1300" href="https://www.instagram.com/6bean.studio/" target="_blank" title="Go to 6Bean Studio instagram"><i class="fa-brands fa-instagram"></i> 6bean.studio</a>
-                <a data-aos="fade-up" data-aos-duration="1350" href="mailto:6bean.studio@gmail.com" title="Go to 6Bean Studio email"><i class="fa-solid fa-inbox"></i> 6bean.studio@gmail.com</a>
+                <a data-aos="fade-up" data-aos-duration="1250" href="https://www.youtube.com/@6beanStudios" target="_blank" title="Go to 6Bean Studio Youtube">
+                    <i class="fa-brands fa-youtube"></i> 6Bean Studio</a>
+                <a data-aos="fade-up" data-aos-duration="1300" href="https://www.instagram.com/6bean.studio/" target="_blank" title="Go to 6Bean Studio instagram">
+                    <i class="fa-brands fa-instagram"></i> 6bean.studio</a>
+                <a data-aos="fade-up" data-aos-duration="1350" href="mailto:6bean.studio@gmail.com" title="Go to 6Bean Studio email">
+                    <i class="fa-solid fa-inbox"></i> 6bean.studio@gmail.com</a>
             </div>
         </div>
         <div class="container" >
             <p data-aos="fade-up" data-aos-duration="1100">&copy; Copyright <span id="current-year"> </span>- Theerapat Karinta. สงวนลิขสิทธิ์.</p>
         </div>
-        </footer>
+    </footer>
 
     <!--Script-->
     <script src="main.js"></script>
