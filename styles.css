@@ -56,7 +56,7 @@ a {
 }
 
 a:hover {
-    color: #000000; /* Black on hover for clear interaction */
+    color: #ff9c6b; /* Black on hover for clear interaction */
 }
 
 img {
@@ -68,9 +68,10 @@ img {
 /* Header & Navigation */
 .site-header {
     background-color: #000000;
-    padding: 0.5rem 0;
+    padding: min(0.5rem ,8%);
     box-shadow: 0 3px 3px rgba(0,0,0,0.04); /* Softer, more subtle shadow */
     position: fixed;
+    /*position: sticky;*/
     width: 100%;
     top: 0;
     left: 0;
@@ -106,6 +107,9 @@ img {
 
 .nav-links li {
     margin-left: 20px;
+    position: relative;
+    display: inline-flex; /* Align text and icon, use inline-flex to keep natural flow */
+    align-items: center; 
 }
 
 .nav-links a {
@@ -119,6 +123,65 @@ img {
 .nav-links a.active { /* Assuming JS will add 'active' class for current page/section */
     color: #ff9c6b; /*  Black for active/hover state */
     border-bottom-color: #ff9c6b; /* Black underline for active/hover */
+}
+
+/* Navigation Dropdown */
+.nav-links li.dropdown {
+    position: relative; /* Important for positioning the dropdown menu */
+}
+
+.nav-links li.dropdown > a { /* Target the direct anchor to style with flex for caret alignment */
+    display: inline-flex; /* Align text and icon, use inline-flex to keep natural flow */
+    align-items: center;
+}
+
+.nav-links li.dropdown > a .fa-caret-down {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.nav-links li.dropdown .dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position it right below the parent li */
+    left: 0;
+    background-color: #000000; /* Match header background */
+    box-shadow: 0 3px 5px rgba(0,0,0,0.2); /* Slightly more pronounced shadow for dropdown */
+    list-style: none;
+    padding: 10px 0; /* Padding for the dropdown box */
+    margin: 0; /* Reset margin */
+    min-width: 200px; /* Minimum width for the dropdown */
+    z-index: 1001; /* Ensure it's above other content, including header's z-index */
+    border-radius: 0 0 4px 4px; /* Optional: rounded corners for bottom */
+}
+
+.nav-links li.dropdown:hover .dropdown-menu,
+.nav-links li.dropdown:focus-within .dropdown-menu { /* Show on hover and when an item inside has focus */
+    display: block;
+}
+
+.nav-links li.dropdown:hover > a .fa-caret-down,
+.nav-links li.dropdown:focus-within > a .fa-caret-down {
+    transform: rotate(180deg); /* Rotate caret when dropdown is open */
+}
+
+.nav-links li.dropdown .dropdown-menu li {
+    margin-left: 0; /* Reset margin from parent nav-links li */
+    width: 100%;
+}
+
+.nav-links li.dropdown .dropdown-menu li a {
+    padding: 10px 20px; /* Padding for dropdown items */
+    display: block; /* Make the entire area clickable */
+    color: #ffffff; /* Link color for dropdown items */
+    white-space: nowrap; /* Prevent text wrapping */
+    border-bottom: none; /* Remove bottom border from main nav style */
+}
+
+.nav-links li.dropdown .dropdown-menu li a:hover {
+    background-color: #1a1a1a; /* Hover background for dropdown items */
+    color: #ff9c6b; /* Hover text color for dropdown items */
+    border-bottom: none; /* Ensure no border on hover */
 }
 
 .hamburger-menu {
@@ -137,6 +200,7 @@ img {
     width: 25px;
     height: 3px;
     background-color: #ffffff; /* Match dark text color */
+    border-radius: 25px;
     margin: 5px 0;
     transition: all 0.3s ease-in-out;
 }
@@ -146,11 +210,12 @@ img {
 footer .social-links {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;/* เพิ่ม: ให้ไอคอนขึ้นบรรทัดใหม่ได้เมื่อพื้นที่ไม่พอ */
+    gap: 10px; /* เพิ่ม: กำหนดระยะห่างระหว่างไอคอน (ทั้งแนวนอนและแนวตั้งเมื่อขึ้นบรรทัดใหม่) */
     margin-top: 20px;
 }
 
 footer .social-links a {
-    margin: 0 10px;
     color: #ffffff;
     transition: color 0.3s ease;
 }
@@ -189,8 +254,12 @@ footer .social-links a:hover {
         height: 100vh;
         background-color: rgba(0, 0, 0, 0.99); /* Almost opaque white for mobile nav */
         backdrop-filter: blur(5px);
-        padding-top: 70px; /* Match main content padding-top */
-        text-align: center;
+        /*padding-top: 70px; /* Match main content padding-top */
+        /*text-align: center;*/
+        padding-top: 80px; /* Increased padding to avoid overlapping fixed header */
+        padding-left: 25px; /* Add padding for content alignment */
+        padding-right: 25px; /* Add padding for content alignment */
+        text-align: left; /* Align text to the left for better readability */
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
         z-index: 999; /* Below header but above content */
@@ -218,7 +287,7 @@ footer .social-links a:hover {
 
     .hamburger-menu {
         display: block; 
-    }
+    } 
 
     /* Hamburger animation to 'X' */
     .hamburger-menu.toggle span:nth-child(1) {
@@ -234,4 +303,37 @@ footer .social-links a:hover {
     h1 { font-size: 2.2rem; }
     h2 { font-size: 1.8rem; }
     .hero-section { padding: 60px 0; }
+    
+    .site-footer {
+        padding: 20px 15px; /* ลด padding ด้านข้างเล็กน้อยสำหรับหน้าจอขนาดเล็ก */
+    }
+
+    footer .social-links {
+        margin-top: 15px; /* ลดระยะห่างด้านบนลงเล็กน้อย */
+        gap: 10px; /* อาจจะลด gap ลงเล็กน้อยถ้าต้องการ */
+    }
+
+    /* Responsive Dropdown Adjustments */
+    .nav-links li.dropdown .dropdown-menu {
+        position: static; /* Remove absolute positioning in mobile nav */
+        box-shadow: none;
+        padding-left: 20px; /* Indent dropdown items slightly */
+        background-color: transparent; /* Blend with mobile nav background */
+        min-width: 100%;
+        border-radius: 0;
+    }
+
+    .nav-links li.dropdown .dropdown-menu li a {
+        padding: 10px 20px; /* Adjust padding for mobile dropdown items */
+        font-size: 1.3rem; /* Slightly smaller font for sub-items */
+        color: #dddddd; /* Lighter color for sub-items to differentiate */
+    }
+
+    .nav-links li.dropdown .dropdown-menu li a:hover {
+        color: #ff9c6b;
+        background-color: transparent; /* Or a very subtle background */
+    }
+    /* For mobile, click to toggle dropdown usually requires JavaScript.
+       This CSS will make it appear on hover/tap, but JS would provide better UX. */
+
 }
