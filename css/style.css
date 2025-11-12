@@ -1,0 +1,491 @@
+/* Global Styles & Dark Mode Base */
+:root {
+    --primary-font: "Athiti","Playpen Sans Thai","Noto Sans Thai", sans-serif ;
+    --bg-color: #121212; /* พื้นหลังสีดำเข้ม */
+    --text-color: #E0E0E0; /* สีตัวอักษรสีอ่อน */
+    --primary-color: #d7774a; /* สีหลัก (ปุ่ม Follow) */
+    --secondary-color: #333333; /* สีพื้นหลังรอง (Cards, Stats) */
+    --accent-color: #02D9C3; /* สีเน้น (อาจใช้สำหรับ Hover หรือ Icon) */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.btn {
+    font-family: var(--primary-font);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: large;
+    transition: background-color 0.3s;
+}
+
+/* Header & Profile */
+.profile-header {
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.header-bg {
+    height: 150px; /* ความสูงของ Background Header */
+    background-color: #444; /* หรือใช้ background-image: url(...) */
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-info {
+    position: relative;
+    margin-top: -60px; /* เลื่อน Profile Info ขึ้นไปทับ Background */
+}
+
+.profile-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid var(--bg-color);
+    object-fit: cover;
+}
+
+h1 {
+    margin: 10px 0 5px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 1em;
+}
+
+.stats:hover {
+    transform: scale(1.5em);
+}
+
+.stats i {
+    color: var(--primary-color);
+    margin-right: 5px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.follow-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.follow-btn:hover {
+    background-color: #ad5831;
+}
+
+.message-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 1px solid #555;
+}
+
+.message-btn:hover {
+    background-color: #1b1b1b;
+    color: var(--text-color);
+    border: 1px solid #555;
+}
+
+/* Navigation/Tabs */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+.nav-tab {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    padding: 10px 15px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-tab:hover {
+    color: var(--primary-color);
+}
+
+.nav-tab.active {
+    border-bottom: 3px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Portfolio Grid (Work Section) */
+.content-area {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+    gap: 20px;
+}
+
+.project-item {
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.project-title {
+    padding: 15px;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+/* About Section */
+.about-info {
+    display: grid;
+    padding: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.info-box {
+    background-color: var(--secondary-color);
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+
+.info-box strong {
+    display: block;
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.info-box span {
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.details h3 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    color: var(--primary-color);
+}
+
+/* Content Toggle */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/*Footer*/
+.site-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    padding-top: 75px;
+}
+
+/*My Images*/
+.myimages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive Grid */
+    gap: 20px;
+    align-items: center;
+}
+
+.myimages-item {
+    background-color: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.myimages-item:hover {
+    transform: scale(1.01);
+}
+
+.myimages-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-info {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/*Logo for Header/Header2*/
+.logo {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    gap: 15px;;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    cursor: pointer;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.logo :hover {
+    transform: scale(1.1);
+}
+
+/* Content2 (ใช้สำหรับ aniamtion.html และ veakan.html) */
+
+.tab-content2 { /* แก้ไขชื่อคลาสให้ถูกต้องจาก tab-conten2 เป็น tab-content2 */
+    display: block;
+}
+
+.portfolio2-grid { /* Grid สำหรับหน้า Animation */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project2-item {
+    display: flex;
+    background-color: var(--secondary-color);
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1.5rem;
+    flex-direction: column;
+}
+
+.project2-item form {
+    padding-top: 10px;
+}
+
+h2 {
+    margin: 10px 0 5px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    color: #d7774a;
+}
+
+.project2-item:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.project2-item a{
+    color: var(--primary-color);
+}
+
+.project2-item a:hover{
+    color: #be643a;
+}
+.project2-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.portfolio3-grid { /* Grid สำหรับหน้า Veakan */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project3-item {
+    display: flex;
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    flex-direction: column;
+}
+
+.project3-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+.project3-item img:hover{
+    transform: scale(1.051);
+}
+
+/* Read More Button Styles */
+.read-more-btn {
+    margin-top: auto; /* ผลักปุ่มลงด้านล่างสุดของ Card */
+    align-self: flex-start; /* จัดปุ่มไปทางซ้ายล่างสุด */
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.read-more-btn:hover {
+    background-color: #ad5831;
+}
+
+/* Responsive YouTube Embed (ถูกใช้งานใน veakan.html) */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* --- Modal (Popup) Styles สำหรับ Image Gallery --- */
+
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.95); /* พื้นหลังมืดมาก */
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+}
+
+.modal-content {
+    padding: 0;
+    border: none;
+    width: 90%; 
+    max-width: 900px; /* ขนาดใหญ่ขึ้นสำหรับรูปภาพ */
+    max-height: 90vh;
+    background-color: transparent; /* ไม่มีพื้นหลัง Modal */
+    position: relative;
+    box-shadow: none; /* ไม่มีเงา */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-header {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.close-btn {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+    background: rgba(0, 0, 0, 0.5); /* พื้นหลังปุ่มปิด */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: var(--primary-color);
+    background: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+
+.modal-image {
+    width: auto;
+    max-height: 90vh; /* จำกัดความสูงไม่ให้เกินหน้าจอ */
+    max-width: 100%;
+    display: block;
+    border-radius: 5px;
+    object-fit: contain; /* ทำให้รูปภาพพอดีกับขนาด Modal โดยไม่ถูกตัด */
+}
